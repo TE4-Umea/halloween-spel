@@ -1,3 +1,4 @@
+var games = games || []
 games.push({
 
     name: 'Namnet på ditt spel',
