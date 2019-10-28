@@ -1,8 +1,12 @@
 games.push({
 
     name: 'Namnet på ditt spel',
+
     /* Ditt namn */
     creator: 'Förnamn Efternamn',
+
+    /* Länk till erat spel! */
+    link: 'https://jj.ygstr.com',
 
     /* Om du har en readme i din github länk behöver du inte en description. Iståfall lämna den tom. */
     description: '',
