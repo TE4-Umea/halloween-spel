@@ -3,9 +3,11 @@ wrap.id = 'wrap'
 
 var logoContainer = document.createElement('div')
 logoContainer.id = 'logo-container'
+
 var canvas = document.createElement('canvas')
 canvas.width = 255
 canvas.height = 24
+
 var ctx = canvas.getContext('2d')
 canvas.id = 'canvas'
 
@@ -55,8 +57,9 @@ function renderView() {
     if (cardsPerRow < 1) {
         cardWidth = windowWidth
         cardsPerRow = 1
-    }
-    var wrapWidth = cardWidth * cardsPerRow
+    } else if(cardsPerRow > 5) cardsPerRow = 5
+
+    var wrapWidth = cardWidth * (cardsPerRow)
 
     wrap.style.width = wrapWidth + 'px'
 
@@ -64,7 +67,7 @@ function renderView() {
         var game = games[i]
         var card = document.createElement('card')
         card.classList.add('card')
-        card.style.margin = cardMargin + 'px'
+        card.style.margin = cardMargin/2 + 'px'
         card.style.width = (cardWidth - (cardMargin * 2)) + 'px'
         
         var coverArt = new Image()
