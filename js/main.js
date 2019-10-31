@@ -19,10 +19,6 @@ logoContainer.appendChild(logo)
 logoContainer.appendChild(canvas)
 document.body.appendChild(logoContainer)
 
-for (var i = 0; i < 3; i++) {
-    games.push(games[0])
-}
-
 window.onload = () => {
     renderView()
     renderCanvas()
