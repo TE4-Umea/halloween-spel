@@ -39,7 +39,6 @@ function renderCanvas() {
         ctx.fillRect(x, y + canvas.height / 2, 1, 300)
     }
 
-
     increment += 5
     requestAnimationFrame(renderCanvas)
 }
@@ -51,7 +50,6 @@ function renderView() {
     var cardWidth = 500
     var cardsPerRow = Math.floor(windowWidth / cardWidth)
     if (cardsPerRow < 1) {
-        cardWidth = windowWidth
         cardsPerRow = 1
     } else if(cardsPerRow > 5) cardsPerRow = 5
 
@@ -64,14 +62,29 @@ function renderView() {
         var card = document.createElement('card')
         card.classList.add('card')
         card.style.margin = cardMargin/2 + 'px'
-        card.style.width = (cardWidth - (cardMargin * 2)) + 'px'
+        card.style.width = (cardWidth - (cardMargin)) + 'px'
         
         var coverArt = new Image()
             coverArt.src = game.cover_art
             coverArt.classList.add('cover-art')
 
         card.appendChild(coverArt)
+        
+        card.innerHTML += `
+        <div class="card-info">
+            <span class="title">${game.name}</span>
+            <span class="author">av ${game.creator}</span>
 
+            <a href="">
+            <button class="source btn">
+                <img src="img/github.png" class="github-logo">
+            </button>
+            </a>
+            <a href="${game.link}" target="_blank">
+            <button class="play btn">PLAY</button>
+            </a>
+        </div>
+        `
         
         wrap.appendChild(card)
     }
